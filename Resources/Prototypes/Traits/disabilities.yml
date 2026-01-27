@@ -50,10 +50,17 @@
   category: Quirks  # ADT Quirks
   components:
     - type: Narcolepsy
+<<<<<<< HEAD
       timeBetweenIncidents: 300, 600
       durationOfIncident: 10, 30
   cost: -1  # ADT Quirks
   quirk: true  # ADT Quirks
+=======
+      maxTimeBetweenIncidents: 600
+      minTimeBetweenIncidents: 300
+      maxDurationOfIncident: 30
+      minDurationOfIncident: 10
+>>>>>>> upstreamcorv
 
 - type: trait
   id: Unrevivable
@@ -108,6 +115,7 @@
   id: PainNumbness
   name: trait-painnumbness-name
   description: trait-painnumbness-desc
+<<<<<<< HEAD
   category: Quirks #ADT Quirks; fix by Prunt
   components:
   - type: PainNumbness
@@ -134,3 +142,29 @@
 #   category: Disabilities
 #   components:
 #     - type: ImpairedMobility
+=======
+  category: Disabilities
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - PainNumbnessTraitStatusEffect
+
+- type: trait
+  id: Hemophilia
+  name: trait-hemophilia-name
+  description: trait-hemophilia-desc
+  category: Disabilities
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - StatusEffectHemophiliaTrait
+
+- type: trait
+  id: ImpairedMobility
+  name: trait-impaired-mobility-name
+  description: trait-impaired-mobility-desc
+  traitGear: OffsetCane
+  category: Disabilities
+  components:
+    - type: ImpairedMobility
+>>>>>>> upstreamcorv

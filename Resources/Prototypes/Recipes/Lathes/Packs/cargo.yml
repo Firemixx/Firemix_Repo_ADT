@@ -5,7 +5,11 @@
   recipes:
   - AppraisalTool
   - Pickaxe
+<<<<<<< HEAD
   - Flare  # ADT Tweak
+=======
+  - UtilityKnife
+>>>>>>> upstreamcorv
 
 - type: latheRecipePack
   id: CargoBoardsStatic

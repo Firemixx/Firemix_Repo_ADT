@@ -1,6 +1,12 @@
 using Content.Server.Chat.Systems;
+<<<<<<< HEAD
 using Content.Server.Speech.Components;
 using Content.Shared.ADT.Language;
+=======
+using Content.Shared.Chat;
+using Content.Shared.Speech;
+using Content.Shared.Speech.Components;
+>>>>>>> upstreamcorv
 
 namespace Content.Server.Speech.EntitySystems;
 

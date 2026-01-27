@@ -1,10 +1,17 @@
 - type: entity
+<<<<<<< HEAD
   id: ActionRevenantShop
   components:
   - type: Action
     icon: Interface/Actions/shop.png
   - type: InstantAction
     event: !type:RevenantShopActionEvent
+=======
+  parent: ActionIntrinsicStore
+  id: ActionRevenantShop
+  name: Shop
+  description: Opens the ability shop.
+>>>>>>> upstreamcorv
 
 - type: entity
   id: ActionRevenantDefile

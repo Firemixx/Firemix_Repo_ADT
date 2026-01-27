@@ -37,6 +37,16 @@
   id: BorgModuleFireExtinguisher
   result: BorgModuleFireExtinguisher
 
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleInflatable
+  result: BorgModuleInflatable
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleArtistry
+  result: BorgModuleArtistry
+
 # Cargo Modules
 
 - type: latheRecipe
@@ -60,13 +70,30 @@
 
 # Medical Modules
 
+<<<<<<< HEAD
 # ADT-Tweak-Start: "MedborgModuleUpdate"
 #- type: latheRecipe
 #  parent: BaseGoldBorgModuleRecipe
 #  id: BorgModuleAdvancedChemical
 #  result: BorgModuleAdvancedChemical
 # ADT-Tweak-End
+=======
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedTopical
+  result: BorgModuleAdvancedTopical
+>>>>>>> upstreamcorv
 
 # Science Modules
 
 # Service Modules
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedClowning
+  result: BorgModuleAdvancedClowning
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Bananium: 375

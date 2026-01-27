@@ -35,7 +35,13 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
+<<<<<<< HEAD
   - type: Tag # goob edit
     tags:
       - GeigerCounter
 
+=======
+  - type: Tag
+    tags:
+    - GeigerCounter
+>>>>>>> upstreamcorv

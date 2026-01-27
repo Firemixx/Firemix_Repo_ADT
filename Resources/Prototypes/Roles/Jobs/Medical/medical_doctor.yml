@@ -6,7 +6,11 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
+<<<<<<< HEAD
       time: 7200 #2 hrs # Corvax-RoleTime
+=======
+      time: 2.5h
+>>>>>>> upstreamcorv
   startingGear: DoctorGear
   icon: "JobIconMedicalDoctor"
   supervisors: job-supervisors-cmo
@@ -24,10 +28,13 @@
   id: DoctorGear
   equipment:
     ears: ClothingHeadsetMedical
+<<<<<<< HEAD
 #    belt: ClothingBeltMedicalFilled ADT tweak
   #storage:
     #back:
     #- Stuff
+=======
+>>>>>>> upstreamcorv
 
 - type: chameleonOutfit
   id: MedicalDoctorChameleonOutfit

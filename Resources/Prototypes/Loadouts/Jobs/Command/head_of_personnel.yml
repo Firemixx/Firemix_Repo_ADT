@@ -6,7 +6,11 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
+<<<<<<< HEAD
       time: 144000 #ADT_Tweak - увеличил до 40 часов
+=======
+      time: 20h
+>>>>>>> upstreamcorv
 
 # Professional HoP Time
 - type: loadoutEffectGroup
@@ -16,7 +20,11 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
+<<<<<<< HEAD
       time: 72000 #20 hrs, special reward for HoP mains # Corvax-RoleTime
+=======
+      time: 15h # special reward for HoP mains
+>>>>>>> upstreamcorv
 
 # Jumpsuit
 - type: loadout

@@ -1,4 +1,5 @@
 using Content.Shared.Arcade;
+using Content.Shared.Dataset;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -23,37 +24,37 @@ public sealed partial class SpaceVillainArcadeComponent : SharedSpaceVillainArca
     /// <summary>
     /// The sound played when a new session of the SpaceVillain game is begun.
     /// </summary>
-    [DataField("newGameSound")]
+    [DataField]
     public SoundSpecifier NewGameSound = new SoundPathSpecifier("/Audio/Effects/Arcade/newgame.ogg");
 
     /// <summary>
     /// The sound played when the player chooses to attack.
     /// </summary>
-    [DataField("playerAttackSound")]
+    [DataField]
     public SoundSpecifier PlayerAttackSound = new SoundPathSpecifier("/Audio/Effects/Arcade/player_attack.ogg");
 
     /// <summary>
     /// The sound played when the player chooses to heal.
     /// </summary>
-    [DataField("playerHealSound")]
+    [DataField]
     public SoundSpecifier PlayerHealSound = new SoundPathSpecifier("/Audio/Effects/Arcade/player_heal.ogg");
 
     /// <summary>
     /// The sound played when the player chooses to regain mana.
     /// </summary>
-    [DataField("playerChargeSound")]
+    [DataField]
     public SoundSpecifier PlayerChargeSound = new SoundPathSpecifier("/Audio/Effects/Arcade/player_charge.ogg");
 
     /// <summary>
     /// The sound played when the player wins.
     /// </summary>
-    [DataField("winSound")]
+    [DataField]
     public SoundSpecifier WinSound = new SoundPathSpecifier("/Audio/Effects/Arcade/win.ogg");
 
     /// <summary>
     /// The sound played when the player loses.
     /// </summary>
-    [DataField("gameOverSound")]
+    [DataField]
     public SoundSpecifier GameOverSound = new SoundPathSpecifier("/Audio/Effects/Arcade/gameover.ogg");
 
     /// <summary>
@@ -88,20 +89,19 @@ public sealed partial class SpaceVillainArcadeComponent : SharedSpaceVillainArca
     /// <summary>
     /// The prototypes that can be dispensed as a reward for winning the game.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public List<EntProtoId> PossibleRewards = new();
 
     /// <summary>
     /// The minimum number of prizes the arcade machine can have.
     /// </summary>
-    [DataField("rewardMinAmount")]
+    [DataField]
     public int RewardMinAmount;
 
     /// <summary>
     /// The maximum number of prizes the arcade machine can have.
     /// </summary>
-    [DataField("rewardMaxAmount")]
+    [DataField]
     public int RewardMaxAmount;
 
     /// <summary>

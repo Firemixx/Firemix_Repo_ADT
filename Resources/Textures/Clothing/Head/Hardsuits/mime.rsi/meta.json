@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
   "copyright": "Sprited by Roudenn(https://github.com/Roudenn)",
+=======
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, sprited by Fazansen(https://github.com/Fazansen), modified for Vox by TrixxedHeart",
+>>>>>>> upstreamcorv
   "size": {
     "x": 32,
     "y": 32
@@ -22,11 +26,19 @@
       "directions": 4
     },
     {
+<<<<<<< HEAD
       "name": "off-equipped-HELMET-reptilian",
       "directions": 4
     },
     {
       "name": "on-equipped-HELMET-reptilian",
+=======
+      "name": "off-equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-vox",
+>>>>>>> upstreamcorv
       "directions": 4
     }
   ]

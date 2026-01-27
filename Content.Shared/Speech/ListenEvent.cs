@@ -1,0 +1,31 @@
+<<<<<<< HEAD:Content.Server/Speech/ListenEvent.cs
+using Content.Shared.ADT.Language;
+
+namespace Content.Server.Speech;
+=======
+namespace Content.Shared.Speech;
+>>>>>>> upstreamcorv:Content.Shared/Speech/ListenEvent.cs
+
+public sealed class ListenEvent : EntityEventArgs
+{
+    public readonly LanguagePrototype? Language; // ADT-Language
+    public readonly string Message;
+    public readonly EntityUid Source;
+
+    public ListenEvent(string message, EntityUid source, LanguagePrototype? language = null) // ADT-Language
+    {
+        Language = language; // ADT-Language
+        Message = message;
+        Source = source;
+    }
+}
+
+public sealed class ListenAttemptEvent : CancellableEntityEventArgs
+{
+    public readonly EntityUid Source;
+
+    public ListenAttemptEvent(EntityUid source)
+    {
+        Source = source;
+    }
+}

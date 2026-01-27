@@ -1,13 +1,14 @@
 - type: entity
-  parent: ClothingEyesBase
-  id: ClothingEyesChameleon # no flash immunity, sorry
+  parent: [ClothingEyesBase, BaseChameleon]
+  id: ClothingEyesChameleon
   name: sun glasses
   description: Useful both for security and cargonia.
   suffix: Chameleon
   components:
+    - type: FlashImmunity
     - type: Tag
       tags: # intentionally no WhitelistChameleon tag
-      - PetWearable 
+      - PetWearable
     - type: Sprite
       sprite: Clothing/Eyes/Glasses/sunglasses.rsi
     - type: Clothing
@@ -15,6 +16,7 @@
     - type: ChameleonClothing
       slot: [eyes]
       default: ClothingEyesGlassesSunglasses
+<<<<<<< HEAD
     - type: UserInterface
       interfaces:
         enum.ChameleonUiKey.Key:
@@ -37,3 +39,5 @@
           - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End
 
+=======
+>>>>>>> upstreamcorv

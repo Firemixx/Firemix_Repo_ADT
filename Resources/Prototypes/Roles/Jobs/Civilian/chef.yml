@@ -6,7 +6,11 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Civilian
+<<<<<<< HEAD
       time: 3600 #1 hrs # Corvax-RoleTime
+=======
+      time: 0.5h
+>>>>>>> upstreamcorv
   startingGear: ChefGear
   icon: "JobIconChef"
   supervisors: job-supervisors-hop
@@ -21,8 +25,13 @@
 - type: startingGear
   id: ChefGear
   equipment:
+<<<<<<< HEAD
     shoes: ClothingShoesColorBlack
     #id: ChefPDA # ADT: different PDAs in loadouts
+=======
+    shoes: ClothingShoesChef
+    id: ChefPDA
+>>>>>>> upstreamcorv
     ears: ClothingHeadsetService
     belt: ClothingBeltChefFilled
   #storage:

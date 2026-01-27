@@ -1,9 +1,10 @@
 ﻿using System.Text;
 using Content.Server.Destructible;
-using Content.Server.PowerCell;
 using Content.Shared.Speech.Components;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.PowerCell;
 using Content.Shared.Speech;
 using Robust.Shared.Random;
 using Robust.Shared.Audio.Systems;
@@ -14,6 +15,7 @@ namespace Content.Server.Speech.EntitySystems;
 public sealed class DamagedSiliconAccentSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -36,10 +38,22 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
         bool messageChanged = false;
         if (ent.Comp.EnableChargeCorruption)
         {
+<<<<<<< HEAD
             float currentChargeLevel = ent.Comp.OverrideChargeLevel ?? 0f;
             if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
                 currentChargeLevel = battery.CurrentCharge / battery.MaxCharge;
 
+=======
+            var currentChargeLevel = 0.0f;
+            if (ent.Comp.OverrideChargeLevel.HasValue)
+            {
+                currentChargeLevel = ent.Comp.OverrideChargeLevel.Value;
+            }
+            else if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
+            {
+                currentChargeLevel = _battery.GetChargeLevel(battery.Value.AsNullable());
+            }
+>>>>>>> upstreamcorv
             currentChargeLevel = Math.Clamp(currentChargeLevel, 0.0f, 1.0f);
 
             var corrupted = CorruptPower(message, currentChargeLevel, ent.Comp);

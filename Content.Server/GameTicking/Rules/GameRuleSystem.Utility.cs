@@ -4,11 +4,18 @@ using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
+<<<<<<< HEAD
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+=======
+using Content.Shared.Station.Components;
+using Robust.Shared.Collections;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+>>>>>>> upstreamcorv
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -125,8 +132,14 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
             var randomY = RobustRandom.Next((int) aabb.Bottom, (int) aabb.Top);
 
             tile = new Vector2i(randomX, randomY);
+<<<<<<< HEAD
             if (_atmosphere.IsTileSpace(grid.Owner, Transform(grid.Owner).MapUid, tile)
                 || _atmosphere.IsTileAirBlocked(grid.Owner, tile, mapGridComp: grid.Comp))
+=======
+            if (_atmosphere.IsTileSpace(targetGrid, Transform(targetGrid).MapUid, tile)
+                || _atmosphere.IsTileAirBlockedCached(targetGrid, tile))
+            {
+>>>>>>> upstreamcorv
                 continue;
 
             targetCoords = _map.GridTileToLocal(grid.Owner, grid.Comp, tile);

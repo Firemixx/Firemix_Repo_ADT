@@ -6,7 +6,11 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
+<<<<<<< HEAD
       time: 18000 #5 hrs # Corvax-RoleTime
+=======
+      time: 5h
+>>>>>>> upstreamcorv
   startingGear: ChemistGear
   icon: "JobIconChemist"
   supervisors: job-supervisors-cmo
@@ -20,12 +24,15 @@
   equipment:
     id: ChemistryPDA
     ears: ClothingHeadsetMedical
+<<<<<<< HEAD
     belt: ADTClothingChemdisBelt #ADT-tweak: так круче
     pocket1: HandLabeler
     eyes: ClothingEyesGlassesChemical
   #storage:
     #back:
     #- Stuff
+=======
+>>>>>>> upstreamcorv
 
 - type: chameleonOutfit
   id: ChemistChameleonOutfit

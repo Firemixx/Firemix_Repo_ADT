@@ -18,6 +18,7 @@
         Glass: 230
       chemicalComposition:
         Silicon: 20
+<<<<<<< HEAD
     # ADT Start
     - type: Food
       requiresSpecialDigestion: true
@@ -35,3 +36,7 @@
       tags:
       - VoxFood
     # ADT End
+=======
+    - type: Circuitboard
+
+>>>>>>> upstreamcorv

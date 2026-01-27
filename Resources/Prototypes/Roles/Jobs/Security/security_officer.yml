@@ -6,6 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
+<<<<<<< HEAD
       time: 54000 #15 hrs # ADT-RoleTime
   # ADT Restrict Start
     - !type:SpeciesRequirement
@@ -15,6 +16,9 @@
       - Vox
       - Shadekin
   # ADT RESTRICT End
+=======
+      time: 4h
+>>>>>>> upstreamcorv
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
@@ -23,7 +27,6 @@
   - Security
   - Brig
   - Maintenance
-  - Service
   - External
   - Cryogenics
   special:

@@ -12,7 +12,11 @@
   - type: Tag
     tags:
     - Sheet
+<<<<<<< HEAD
     - NoPaint #ADT tweak
+=======
+    - ConstructionMaterial
+>>>>>>> upstreamcorv
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -113,10 +117,13 @@
         - ReagentId: Plasma
           Quantity: 10
         canReact: false
+<<<<<<< HEAD
   - type: Tag
     tags:
     - Sheet
     - NoPaint #ADT tweak
+=======
+>>>>>>> upstreamcorv
 
 - type: entity
   parent: SheetPlasma
@@ -140,16 +147,6 @@
     count: 1
 
 - type: entity
-  parent: SheetPlasma
-  id: SheetPlasmaLingering0
-  name: plasma
-  suffix: 0, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
-
-- type: entity
   parent: SheetOtherBase
   id: SheetPlastic
   name: plastic
@@ -159,7 +156,11 @@
     tags:
     - Plastic
     - Sheet
+<<<<<<< HEAD
     - NoPaint #ADT tweak
+=======
+    - ConstructionMaterial
+>>>>>>> upstreamcorv
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -226,7 +227,7 @@
       - Sheet
 ### End ADT Tweak
   - type: Material
-  - type: Food
+  - type: Edible
     transferAmount: 10
   - type: BadFood
   - type: PhysicalComposition

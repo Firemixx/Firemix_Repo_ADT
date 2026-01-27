@@ -1,12 +1,14 @@
 - type: entity
-  parent: ClothingNeckBase
+  parent: [ClothingNeckBase, BaseChameleon]
   id: ClothingNeckChameleon
   name: striped red scarf
   description: A stylish striped red scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   suffix: Chameleon
   components:
     - type: Tag
-      tags: [] # ignore "WhitelistChameleon" tag
+      tags: # ignore "WhitelistChameleon" tag
+      - ClothMade
+      - Recyclable
     - type: Sprite
       sprite: Clothing/Neck/Scarfs/red.rsi
     - type: Clothing
@@ -14,6 +16,7 @@
     - type: ChameleonClothing
       slot: [NECK]
       default: ClothingNeckScarfStripedRed
+<<<<<<< HEAD
     - type: UserInterface
       interfaces:
         enum.ChameleonUiKey.Key:
@@ -35,3 +38,5 @@
           - ADTSeniorResearcher # ADT tweak
           - ADTRoboticist # ADT tweak
 # Corvax-HiddenDesc-End
+=======
+>>>>>>> upstreamcorv

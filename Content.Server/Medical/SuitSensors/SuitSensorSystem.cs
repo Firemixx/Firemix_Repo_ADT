@@ -1,66 +1,16 @@
-using System.Numerics;
-using Content.Server.Access.Systems;
 using Content.Server.DeviceNetwork.Systems;
-using Content.Server.Emp;
 using Content.Server.Medical.CrewMonitoring;
-using Content.Server.Popups;
-using Content.Server.Station.Systems;
-using Content.Shared.ActionBlocker;
-using Content.Shared.Clothing;
-using Content.Shared.Damage;
-using Content.Shared.DeviceNetwork;
-using Content.Shared.DoAfter;
-using Content.Shared.Examine;
-using Content.Shared.GameTicking;
-using Content.Shared.Interaction;
-using Content.Shared.Inventory;
-using Content.Shared.Medical.SuitSensor;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Verbs;
-using Robust.Shared.Containers;
-using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using Robust.Shared.Timing;
 using Content.Shared.DeviceNetwork.Components;
+using Content.Shared.Medical.SuitSensors;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Medical.SuitSensors;
 
-public sealed class SuitSensorSystem : EntitySystem
+public sealed class SuitSensorSystem : SharedSuitSensorSystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
-    [Dependency] private readonly IdCardSystem _idCardSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly SingletonDeviceNetServerSystem _singletonServerSystem = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
-        SubscribeLocalEvent<SuitSensorComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SuitSensorComponent, ClothingGotEquippedEvent>(OnEquipped);
-        SubscribeLocalEvent<SuitSensorComponent, ClothingGotUnequippedEvent>(OnUnequipped);
-        SubscribeLocalEvent<SuitSensorComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<SuitSensorComponent, GetVerbsEvent<Verb>>(OnVerb);
-        SubscribeLocalEvent<SuitSensorComponent, EntGotInsertedIntoContainerMessage>(OnInsert);
-        SubscribeLocalEvent<SuitSensorComponent, EntGotRemovedFromContainerMessage>(OnRemove);
-        SubscribeLocalEvent<SuitSensorComponent, EmpPulseEvent>(OnEmpPulse);
-        SubscribeLocalEvent<SuitSensorComponent, EmpDisabledRemoved>(OnEmpFinished);
-        SubscribeLocalEvent<SuitSensorComponent, SuitSensorChangeDoAfterEvent>(OnSuitSensorDoAfter);
-    }
 
     public override void Update(float frameTime)
     {
@@ -77,15 +27,13 @@ public sealed class SuitSensorSystem : EntitySystem
             // check if sensor is ready to update
             if (curTime < sensor.NextUpdate)
                 continue;
+            sensor.NextUpdate += sensor.UpdateRate;
 
-            if (!CheckSensorAssignedStation(uid, sensor))
+            if (!CheckSensorAssignedStation((uid, sensor)))
                 continue;
 
-            // TODO: This would cause imprecision at different tick rates.
-            sensor.NextUpdate = curTime + sensor.UpdateRate;
-
             // get sensor status
-            var status = GetSensorState(uid, sensor);
+            var status = GetSensorState((uid, sensor));
             if (status == null)
                 continue;
 
@@ -111,6 +59,7 @@ public sealed class SuitSensorSystem : EntitySystem
             _deviceNetworkSystem.QueuePacket(uid, sensor.ConnectedServer, payload, device: device);
         }
     }
+<<<<<<< HEAD
 
     /// <summary>
     /// Checks whether the sensor is assigned to a station or not
@@ -509,4 +458,6 @@ public sealed class SuitSensorSystem : EntitySystem
         };
         return status;
     }
+=======
+>>>>>>> upstreamcorv
 }

@@ -59,11 +59,20 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: fire_VOX
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: fire_RESOMI
 # ADT-tweak end
+=======
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: fire_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: fire_MOTH
+>>>>>>> upstreamcorv
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -96,11 +105,20 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: shock_VOX
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: shock_RESOMI
 # ADT-tweak end
+=======
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: shock_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: shock_MOTH
+>>>>>>> upstreamcorv
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -133,11 +151,20 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: shadow_VOX
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: shadow_RESOMI
 # ADT-tweak end
+=======
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: shadow_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: shadow_MOTH
+>>>>>>> upstreamcorv
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -170,11 +197,20 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: frost_VOX
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: frost_RESOMI
 # ADT-tweak end
+=======
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: frost_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: frost_MOTH
+>>>>>>> upstreamcorv
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -207,11 +243,20 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: flora_VOX
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: flora_RESOMI
 # ADT-tweak end
+=======
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: flora_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: flora_MOTH
+>>>>>>> upstreamcorv
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -244,11 +289,20 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: bluespace_VOX
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: bluespace_RESOMI
 # ADT-tweak end
+=======
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: bluespace_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: bluespace_MOTH
+>>>>>>> upstreamcorv
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -281,11 +335,20 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: flesh_VOX
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: flesh_RESOMI
 # ADT-tweak end
+=======
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: flesh_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: flesh_MOTH
+>>>>>>> upstreamcorv
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -319,11 +382,20 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: grav_VOX
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: grav_RESOMI
 # ADT-tweak end
+=======
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: grav_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: grav_MOTH
+>>>>>>> upstreamcorv
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -356,11 +428,20 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: tech_VOX
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: tech_RESOMI
 # ADT-tweak end
+=======
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: tech_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: tech_MOTH
+>>>>>>> upstreamcorv
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -394,11 +475,20 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: rock_VOX
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: rock_RESOMI
 # ADT-tweak end
+=======
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: rock_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: rock_MOTH
+>>>>>>> upstreamcorv
 
 - type: entity
   parent: BaseAnomalyInjector

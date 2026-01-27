@@ -106,6 +106,7 @@ namespace Content.Server.Chemistry.EntitySystems
             // Initialize when spawned in the world.
             SubscribeLocalEvent<ChemMasterComponent, MapInitEvent>(OnMapInit);
             // ADT-Tweak End
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterOutputDrawSourceMessage>(OnSetDrawSourceMessage);
         }
 
         private void OnAmountsUpdated(Entity<ChemMasterComponent> ent, ref ChemMasterAmountsUpdated args)
@@ -348,8 +349,17 @@ namespace Content.Server.Chemistry.EntitySystems
                 storedBottlesInfo,
                 chemMaster.SelectedBottleForFill,
                 chemMaster.SelectedReagents,
-                chemMaster.SelectedReagentAmounts);
+                chemMaster.SelectedReagentAmounts,
             //ADT-Tweak End
+                chemMaster.SortingType,
+                BuildInputContainerInfo(inputContainer),
+                BuildOutputContainerInfo(outputContainer),
+                bufferReagents,
+                bufferCurrentVolume,
+                chemMaster.PillType,
+                chemMaster.PillDosageLimit,
+                updateLabel,
+                chemMaster.DrawSource);
 
             _userInterfaceSystem.SetUiState(owner, ChemMasterUiKey.Key, state);
         }
@@ -408,6 +418,16 @@ namespace Content.Server.Chemistry.EntitySystems
                     return;
             }
 
+            ClickSound(chemMaster);
+        }
+        private void OnSetDrawSourceMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterOutputDrawSourceMessage message)
+        {
+            //Ensure draw source is valid, either from the internal buffer or the inserted beaker
+            if (!Enum.IsDefined(message.DrawSource))
+                return;
+
+            chemMaster.Comp.DrawSource = message.DrawSource;
+            UpdateUiState(chemMaster);
             ClickSound(chemMaster);
         }
 
@@ -1396,7 +1416,8 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private bool WithdrawSelectedReagentsFromBuffer(
             Entity<ChemMasterComponent> chemMaster,
-            FixedPoint2 neededVolume, EntityUid? user,
+            FixedPoint2 neededVolume,
+            EntityUid? user,
             [NotNullWhen(returnValue: true)] out Solution? outputSolution)
         {
             outputSolution = null;
@@ -1404,11 +1425,11 @@ namespace Content.Server.Chemistry.EntitySystems
             if (!_solutionContainerSystem.TryGetSolution((EntityUid)chemMaster, SharedChemMaster.BufferSolutionName, out _, out var solution))
                 return false;
 
-            if (solution.Volume == 0)
+            switch (chemMaster.Comp.DrawSource)
             {
-                if (user.HasValue)
-                    _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-empty-text"), user.Value);
-                return false;
+                case ChemMasterDrawSource.Internal:
+                    if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out solution))
+                        return false;
             }
 
             // Get selected reagents for creation

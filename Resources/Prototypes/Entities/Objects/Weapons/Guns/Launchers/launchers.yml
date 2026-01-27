@@ -1,6 +1,6 @@
 - type: entity
   name: BaseWeaponLauncher
-  parent: BaseItem
+  parent: [ BaseItem, BaseGunWieldable ]
   id: BaseWeaponLauncher
   description: A rooty tooty point and shooty.
   abstract: true
@@ -12,18 +12,33 @@
     slots:
     - Back
   - type: Item
-    size: Huge
+    size: Ginormous
   - type: StaticPrice
     price: 500
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
         ents: []
+<<<<<<< HEAD
   - type: GunExecutionBlacklist #ADT-tweak
 
 - type: entity
   name: china lake
   parent: [BaseWeaponLauncher, BaseGunWieldable, BaseSyndicateContraband, ADTBaseMagneticGun] # ADT TWEAK
+=======
+  - type: Gun
+    fireRate: 1
+    projectileSpeed: 25 # Slower than a bullet, same speed as our old projectile limit.
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+
+- type: entity
+  name: china lake
+  parent: [BaseWeaponLauncher, BaseSyndicateContraband]
+>>>>>>> upstreamcorv
   id: WeaponLauncherChinaLake
   description: PLOOP.
   components:
@@ -37,7 +52,12 @@
     slots:
     - Back
     - suitStorage
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,2
   - type: AmmoCounter
+<<<<<<< HEAD
   - type: RunAndGunSpreadModifier #ADT-tweak
   # ADT-Tweak start
   - type: MeleeWeapon
@@ -57,6 +77,8 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+=======
+>>>>>>> upstreamcorv
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -70,10 +92,10 @@
     price: 10000
 
 - type: entity
-  parent: [ BaseWeaponLauncher, BaseGunWieldable, BaseMajorContraband ]
+  parent: [ BaseWeaponLauncher, BaseMajorContraband ]
   id: WeaponLauncherHydra
   name: hydra
-  description: PLOOP... FSSSSSS
+  description: PLOOP... FSSSSSS...
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/hydra_launcher.rsi
@@ -85,14 +107,9 @@
     slots:
     - Back
     - suitStorage
+  - type: Item
+    size: Huge
   - type: AmmoCounter
-  - type: Gun
-    fireRate: 1
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
   - type: GunRequiresWield
   - type: ContainerContainer
     containers:
@@ -109,6 +126,14 @@
       path: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+
+- type: entity
+  parent: [WeaponLauncherHydra]
+  id: WeaponLauncherHydraLethal
+  suffix: frag
+  components:
+  - type: RevolverAmmoProvider
+    proto: GrenadeFrag
 
 - type: entity
   name: RPG-7
@@ -221,7 +246,7 @@
   description: Manipulates gravity around objects to fling them at high velocities.
   components:
     - type: Item
-      storedRotation: -90
+      size: Normal
     - type: TetherGun
       frequency: 5
       dampingRatio: 4
@@ -263,7 +288,7 @@
   description: Manipulates gravity around objects to fling them at high velocities.
   components:
     - type: Item
-      storedRotation: -90
+      size: Normal
     - type: ForceGun
       frequency: 15
       dampingRatio: 4
@@ -307,6 +332,12 @@
   parent: BaseItem
   id: WeaponGrapplingGun
   components:
+    - type: Item
+      size: Small
+      shape:
+      - 0,0,1,0
+      - 0,1,0,1
+      storedOffset: 0,-6
     - type: AmmoCounter
     - type: GrapplingGun
     - type: Gun
@@ -343,6 +374,8 @@
   suffix: Admeme
   description: Manipulates gravity around objects to fling them at high velocities.
   components:
+    - type: Item
+      size: Normal
     - type: TetherGun
       canTetherAlive: true
       canUnanchor: true
@@ -382,6 +415,8 @@
   suffix: Admeme
   description: Manipulates gravity around objects to fling them at high velocities.
   components:
+    - type: Item
+      size: Normal
     - type: ForceGun
       canTetherAlive: true
       canUnanchor: true
@@ -425,9 +460,6 @@
   description: It fires large meteors.
   components:
   - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-        - CartridgeRocket
     proto: MeteorMedium
 
 - type: entity
@@ -438,7 +470,4 @@
   description: It fires slow immovable rods.
   components:
   - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-        - CartridgeRocket
     proto: ImmovableRodSlow

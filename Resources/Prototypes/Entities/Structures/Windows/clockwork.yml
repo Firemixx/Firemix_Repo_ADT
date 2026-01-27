@@ -125,7 +125,11 @@
   - type: Tag
     tags:
     - Diagonal
+<<<<<<< HEAD
     - Window #ADT-Tweak
+=======
+    - Window
+>>>>>>> upstreamcorv
   - type: IconSmooth
     mode: Diagonal
     key: windows

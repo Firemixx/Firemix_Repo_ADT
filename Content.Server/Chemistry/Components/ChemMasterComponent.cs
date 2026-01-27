@@ -80,5 +80,10 @@ namespace Content.Server.Chemistry.Components
         [DataField]
         public Dictionary<ReagentId, float> SelectedReagentAmounts { get; set; } = new();
         // ADT-Tweak-End
+        /// <summary>
+        /// Which source the chem master should draw from when making pills/bottles.
+        /// </summary>
+        [DataField]
+        public ChemMasterDrawSource DrawSource = ChemMasterDrawSource.Internal;
     }
 }

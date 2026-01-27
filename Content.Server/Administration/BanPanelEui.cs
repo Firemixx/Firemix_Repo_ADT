@@ -17,7 +17,6 @@ using Content.Shared.Eui;
 using Content.Shared.Roles;
 using Robust.Server.Player;
 using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Administration;
 
@@ -40,8 +39,8 @@ public sealed class BanPanelEui : BaseEui
     private string PlayerName { get; set; } = string.Empty;
     private IPAddress? LastAddress { get; set; }
     private ImmutableTypedHwid? LastHwid { get; set; }
-    private const int Ipv4_CIDR = 32;
-    private const int Ipv6_CIDR = 64;
+    private const int Ipv4_CIDR = CreateBanInfo.DefaultMaskIpv4;
+    private const int Ipv6_CIDR = CreateBanInfo.DefaultMaskIpv6;
 
     public BanPanelEui()
     {
@@ -63,7 +62,7 @@ public sealed class BanPanelEui : BaseEui
         switch (msg)
         {
             case BanPanelEuiStateMsg.CreateBanRequest r:
-                BanPlayer(r.Player, r.IpAddress, r.UseLastIp, r.Hwid, r.UseLastHwid, r.Minutes, r.Severity, r.Reason, r.Roles, r.Erase);
+                BanPlayer(r.Ban);
                 break;
             case BanPanelEuiStateMsg.GetPlayerInfoRequest r:
                 ChangePlayer(r.PlayerUsername);
@@ -71,29 +70,35 @@ public sealed class BanPanelEui : BaseEui
         }
     }
 
-    private async void BanPlayer(string? target, string? ipAddressString, bool useLastIp, ImmutableTypedHwid? hwid, bool useLastHwid, uint minutes, NoteSeverity severity, string reason, IReadOnlyCollection<string>? roles, bool erase)
+    private async void BanPlayer(Ban ban)
     {
         if (!_admins.HasAdminFlag(Player, AdminFlags.Ban))
         {
             _sawmill.Warning($"{Player.Name} ({Player.UserId}) tried to create a ban with no ban flag");
+
             return;
         }
-        if (target == null && string.IsNullOrWhiteSpace(ipAddressString) && hwid == null)
+
+        if (ban.Target == null && string.IsNullOrWhiteSpace(ban.IpAddress) && ban.Hwid == null)
         {
             _chat.DispatchServerMessage(Player, Loc.GetString("ban-panel-no-data"));
+
             return;
         }
 
-        (IPAddress, int)? addressRange = null;
-        if (ipAddressString is not null)
-        {
-            var hid = "0";
-            var split = ipAddressString.Split('/', 2);
-            ipAddressString = split[0];
-            if (split.Length > 1)
-                hid = split[1];
+        var isRoleBan = ban.BannedJobs?.Length > 0 || ban.BannedAntags?.Length > 0;
 
-            if (!IPAddress.TryParse(ipAddressString, out var ipAddress) || !uint.TryParse(hid, out var hidInt) || hidInt > Ipv6_CIDR || hidInt > Ipv4_CIDR && ipAddress.AddressFamily == AddressFamily.InterNetwork)
+        CreateBanInfo banInfo = isRoleBan ? new CreateRoleBanInfo(ban.Reason) : new CreateServerBanInfo(ban.Reason);
+
+        banInfo.WithBanningAdmin(Player.UserId);
+        banInfo.WithSeverity(ban.Severity);
+        if (ban.BanDurationMinutes > 0)
+            banInfo.WithMinutes(ban.BanDurationMinutes);
+
+        (IPAddress, int)? addressRange = null;
+        if (ban.IpAddress is not null)
+        {
+            if (!IPAddress.TryParse(ban.IpAddress, out var ipAddress) || !uint.TryParse(ban.IpAddressHid, out var hidInt) || hidInt > Ipv6_CIDR || hidInt > Ipv4_CIDR && ipAddress.AddressFamily == AddressFamily.InterNetwork)
             {
                 _chat.DispatchServerMessage(Player, Loc.GetString("ban-panel-invalid-ip"));
                 return;
@@ -105,12 +110,12 @@ public sealed class BanPanelEui : BaseEui
             addressRange = (ipAddress, (int)hidInt);
         }
 
-        var targetUid = target is not null ? PlayerId : null;
-        addressRange = useLastIp && LastAddress is not null ? (LastAddress, LastAddress.AddressFamily == AddressFamily.InterNetworkV6 ? Ipv6_CIDR : Ipv4_CIDR) : addressRange;
-        var targetHWid = useLastHwid ? LastHwid : hwid;
-        if (target != null && target != PlayerName || Guid.TryParse(target, out var parsed) && parsed != PlayerId)
+        var targetUid = ban.Target is not null ? PlayerId : null;
+        addressRange = ban.UseLastIp && LastAddress is not null ? (LastAddress, LastAddress.AddressFamily == AddressFamily.InterNetworkV6 ? Ipv6_CIDR : Ipv4_CIDR) : addressRange;
+        var targetHWid = ban.UseLastHwid ? LastHwid : ban.Hwid;
+        if (ban.Target != null && ban.Target != PlayerName || Guid.TryParse(ban.Target, out var parsed) && parsed != PlayerId)
         {
-            var located = await _playerLocator.LookupIdByNameOrIdAsync(target);
+            var located = await _playerLocator.LookupIdByNameOrIdAsync(ban.Target);
             if (located == null)
             {
                 _chat.DispatchServerMessage(Player, Loc.GetString("cmd-ban-player"));
@@ -118,7 +123,7 @@ public sealed class BanPanelEui : BaseEui
             }
             targetUid = located.UserId;
             var targetAddress = located.LastAddress;
-            if (useLastIp && targetAddress != null)
+            if (ban.UseLastIp && targetAddress != null)
             {
                 if (targetAddress.IsIPv4MappedToIPv6)
                     targetAddress = targetAddress.MapToIPv4();
@@ -127,10 +132,18 @@ public sealed class BanPanelEui : BaseEui
                 var hid = targetAddress.AddressFamily == AddressFamily.InterNetworkV6 ? Ipv6_CIDR : Ipv4_CIDR;
                 addressRange = (targetAddress, hid);
             }
-            targetHWid = useLastHwid ? located.LastHWId : hwid;
+            targetHWid = ban.UseLastHwid ? located.LastHWId : ban.Hwid;
         }
 
-        if (roles?.Count > 0)
+        if (addressRange != null)
+            banInfo.AddAddressRange(addressRange.Value);
+
+        if (targetUid != null)
+            banInfo.AddUser(targetUid.Value, ban.Target!);
+
+        banInfo.AddHWId(targetHWid);
+
+        if (isRoleBan)
         {
             var now = DateTimeOffset.UtcNow;
             //Start-ADT-Tweak: логи банов для диса
@@ -166,8 +179,7 @@ public sealed class BanPanelEui : BaseEui
             await _discordBanInfoSender.SendBanInfoAsync<PanelBanPayloadGenerator>(roleBanInfo);
             //End-ADT-Tweak
 
-            Close();
-            return;
+            _banManager.CreateServerBan((CreateServerBanInfo)banInfo);
         }
 
         if (erase &&

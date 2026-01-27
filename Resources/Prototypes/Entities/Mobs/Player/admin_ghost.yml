@@ -17,6 +17,7 @@
     - SilentStorageUser
     - PreventAccessLogging
     - AllowBiomeLoading
+    - NotGhostnadoWarpable
   - type: Input
     context: "aghost"
   - type: Ghost
@@ -36,8 +37,8 @@
     needsHands: false
   - type: CombatMode
   - type: Physics
+    bodyType: Kinematic # Admin ghosts should ignore the laws of physics.
     ignorePaused: true
-    bodyType: Kinematic
   - type: Access
     groups:
     - Silicon
@@ -123,7 +124,7 @@
   components:
   - type: Action
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
-    iconOn: Structures/Machines/parts.rsi/box_2.png
+    iconOn: { sprite: Structures/Machines/parts.rsi, state: box_2 }
     keywords: [ "AI", "console", "interface" ]
     priority: -10
 
@@ -146,8 +147,14 @@
   description: View a Communications Interface.
   components:
   - type: Action
+<<<<<<< HEAD
     icon: { sprite: Corvax/Interface/adminactions.rsi, state: comms_console } # Corvax-Resprite
     iconOn: Corvax/Interface/adminactions.rsi/comms_console.png # Corvax-Resprite
+=======
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
+    keywords: [ "AI", "console", "interface" ]
+>>>>>>> upstreamcorv
     priority: -4
   - type: InstantAction
     event: !type:ToggleIntrinsicUIEvent { key: enum.CommunicationsConsoleUiKey.Key }
@@ -159,8 +166,14 @@
   description: View a Mass Scanner Interface.
   components:
   - type: Action
+<<<<<<< HEAD
     icon: { sprite: Corvax/Interface/adminactions.rsi, state: mass_scanner } # Corvax-Resprite
     iconOn: Corvax/Interface/adminactions.rsi/mass_scanner.png # Corvax-Resprite
+=======
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
+    keywords: [ "AI", "console", "interface" ]
+>>>>>>> upstreamcorv
     priority: -6
   - type: InstantAction
     event: !type:ToggleIntrinsicUIEvent { key: enum.RadarConsoleUiKey.Key }
@@ -184,8 +197,14 @@
   description: View a Crew Monitoring Interface.
   components:
   - type: Action
+<<<<<<< HEAD
     icon: { sprite: Corvax/Interface/adminactions.rsi, state: crew_monitor } # Corvax-Resprite
     iconOn: Corvax/Interface/adminactions.rsi/crew_monitor.png # Corvax-Resprite
+=======
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: crew_monitor }
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: crew_monitor }
+    keywords: [ "AI", "console", "interface" ]
+>>>>>>> upstreamcorv
     priority: -8
   - type: InstantAction
     event: !type:ToggleIntrinsicUIEvent { key: enum.CrewMonitoringUIKey.Key }
@@ -197,8 +216,14 @@
   description: View a Station Records Interface.
   components:
   - type: Action
+<<<<<<< HEAD
     icon: { sprite: Corvax/Interface/adminactions.rsi, state: station_records } # Corvax-Resprite
     iconOn: Corvax/Interface/adminactions.rsi/station_records.png # Corvax-Resprite
+=======
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: station_records }
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: station_records }
+    keywords: [ "AI", "console", "interface" ]
+>>>>>>> upstreamcorv
     priority: -7
   - type: InstantAction
     event: !type:ToggleIntrinsicUIEvent { key: enum.GeneralStationRecordConsoleKey.Key }

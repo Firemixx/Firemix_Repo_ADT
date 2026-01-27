@@ -128,14 +128,22 @@
   - FauxTileAstroGrass
   - FauxTileMowedAstroGrass
   - FauxTileJungleAstroGrass
+  - FauxTileDarkAstroGrass
+  - FauxTileLightAstroGrass
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
+<<<<<<< HEAD
   # ADT Research Console Rework start
   position: 4,0
   requiredTech:
   - AdvancedEntertainment
   # ADT Research Console Rework end
+=======
+  - FauxTileDesertAstroSand
+  - FauxTileAstroIronsand
+  - FauxTileAstroIronsandBorderless
+>>>>>>> upstreamcorv
 
 # Перенесено в ADT/Research/biochemical.yml
 # - type: technology
@@ -158,6 +166,7 @@
 #   - ADTCloning
 #   # ADT Research Console Rework end
 
+<<<<<<< HEAD
 # Перенесено в ADT/Research/biochemical.yml
 # - type: technology
 #   id: MechanizedTreatment
@@ -176,6 +185,20 @@
 #   requiredTech:
 #   - ADTMedicalMODsuit
 #   # ADT Research Console Rework end
+=======
+- type: technology # Merge with other T2 medical research if possible!
+  id: MechanizedTreatment
+  name: research-technology-mechanized-treatment
+  icon:
+    sprite: Mobs/Silicon/chassis.rsi
+    state: medical
+  discipline: CivilianServices
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - BorgModuleAdvancedTopical
+  - AdvancedJetInjector
+>>>>>>> upstreamcorv
 
 - type: technology
   id: AdvancedCleaning
@@ -271,11 +294,15 @@
   cost: 5000
   recipeUnlocks:
   - PushHorn
+<<<<<<< HEAD
   # ADT Research Console Rework start
   position: 6,-1
   requiredTech:
   - ADTProtectionPseudoscience
   # ADT Research Console Rework end
+=======
+  - BorgModuleAdvancedClowning
+>>>>>>> upstreamcorv
 
 # Tier 3
 

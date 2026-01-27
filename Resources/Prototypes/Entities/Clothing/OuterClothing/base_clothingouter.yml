@@ -29,9 +29,14 @@
   parent: ClothingOuterBase
   id: ClothingOuterStorageBase
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,2
   - type: Storage
     grid:
     - 0,0,2,1
+    maxItemSize: Small
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -146,10 +151,16 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
+<<<<<<< HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [innerclothing, gloves, feet, underwearb, underweart, socks]
   #ADT-Tweak-End
+=======
+  - type: HideLayerClothing
+    slots:
+    - Tail
+>>>>>>> upstreamcorv
 
 - type: entity
   abstract: true
@@ -179,10 +190,16 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
+<<<<<<< HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [innerclothing, gloves, feet, underwearb, underweart, socks]
   #ADT-Tweak-End
+=======
+  - type: HideLayerClothing
+    slots:
+    - Tail
+>>>>>>> upstreamcorv
 
 - type: entity
   parent: ClothingOuterBase
@@ -205,4 +222,6 @@
   id: ClothingOuterBaseMedium
   components:
   - type: Item
-    size: Huge
+    size: Large
+    shape:
+    - 0,0,2,3

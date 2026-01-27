@@ -14,6 +14,7 @@
 
   defaultModules:
   - BorgModuleTool
+  - BorgModuleInflatable
   - BorgModuleArtifact
   - BorgModuleAnomaly
   radioChannels:
@@ -120,7 +121,6 @@
     - BorgModuleJanitor
 
   defaultModules:
-  - BorgModuleTool
   - BorgModuleCleaning
   - BorgModuleCustodial
 
@@ -156,9 +156,13 @@
     - BorgModuleMedical
 
   defaultModules:
+<<<<<<< HEAD
   - BorgModuleTool
   # ADT-Tweak-Start: "MedborgModuleUpdate"
   - ADTBorgModuleChemical
+=======
+  - BorgModuleChemical
+>>>>>>> upstreamcorv
   - BorgModuleTopicals
   - ADTBorgModuleRescue
   # ADT-Tweak-end
@@ -208,7 +212,6 @@
     - BorgModuleService
 
   defaultModules:
-  - BorgModuleTool
   - BorgModuleMusique
   - BorgModuleService
   - BorgModuleClowning

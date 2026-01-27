@@ -6,24 +6,28 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 9000 # 2.5 hours
+      time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 9000 # 2.5 hours
+      time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 9000 # 2.5 hrs
+      time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 9000 # 2.5 hrs
+      time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Command
+<<<<<<< HEAD
       time: 9000 # 2.5 hours
     - !type:SpeciesRequirement
       inverted: true
       species:
       - Vox
       #ADT tweak end
+=======
+      time: 2.5h
+>>>>>>> upstreamcorv
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
@@ -70,8 +74,14 @@
     shoes: ClothingShoesColorBrown
     id: HoPPDA
     gloves: ClothingHandsGlovesHop
+<<<<<<< HEAD
     # ears: ClothingHeadsetAltCommand # ADT tweak
     belt: BoxFolderClipboard
+=======
+    ears: ClothingHeadsetAltCommand
+    belt: BoxFolderClipboardThreePapers
+    eyes: ClothingEyesHudCommand
+>>>>>>> upstreamcorv
   storage:
     back:
     - Flash

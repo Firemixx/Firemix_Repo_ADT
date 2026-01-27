@@ -4,6 +4,7 @@
   Нанотразен нанимает разнообразные разумные виды.
 
   <Box>
+<<<<<<< HEAD
   <GuideEntityEmbed Entity="MobArachnid" Caption="Арахнид"/>
   <GuideEntityEmbed Entity="MobDiona" Caption="Диона"/>
   <GuideEntityEmbed Entity="MobDwarf" Caption="Дворф"/>
@@ -14,6 +15,21 @@
   <GuideEntityEmbed Entity="MobReptilian" Caption="Унатх"/>
   <GuideEntityEmbed Entity="MobVulpkanin" Caption="Вульпканин"/>
   <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слаймолюд"/>
+=======
+  <GuideEntityEmbed Entity="AppearanceArachnid" Caption="Arachnid"/>
+  <GuideEntityEmbed Entity="AppearanceDiona" Caption="Diona"/>
+  <GuideEntityEmbed Entity="AppearanceDwarf" Caption="Dwarf"/>
+  <GuideEntityEmbed Entity="AppearanceHuman" Caption="Human"/>
+  </Box>
+  <Box>
+  <GuideEntityEmbed Entity="AppearanceMoth" Caption="Moth Person"/>
+  <GuideEntityEmbed Entity="AppearanceReptilian" Caption="Reptilian"/>
+  <GuideEntityEmbed Entity="AppearanceSlimePerson" Caption="Slime Person"/>
+  <GuideEntityEmbed Entity="AppearanceVox" Caption="Vox"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AppearanceVulpkanin" Caption="Vulpkanin"/>
+>>>>>>> upstreamcorv
   </Box>
 
 </Document>

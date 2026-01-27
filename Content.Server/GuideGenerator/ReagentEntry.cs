@@ -1,5 +1,9 @@
 using System.Linq;
 using System.Text.Json.Serialization;
+<<<<<<< HEAD
+=======
+using Content.Server.Body.Components;
+>>>>>>> upstreamcorv
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Server.Corvax.GuideGenerator;
@@ -45,6 +49,7 @@ public sealed class ReagentEntry
         Description = proto.LocalizedDescription;
         PhysicalDescription = proto.LocalizedPhysicalDescription;
         SubstanceColor = proto.SubstanceColor.ToHex();
+<<<<<<< HEAD
 
         // Corvax-Wiki-Start
         var r = proto.SubstanceColor.R;
@@ -56,6 +61,9 @@ public sealed class ReagentEntry
 
         Metabolisms = proto.Metabolisms?.ToDictionary(x => x.Key.Id, x => new Corvax.GuideGenerator.ReagentEffectsEntry(x.Value));
         // Corvax-Wiki-End
+=======
+        Metabolisms = proto.Metabolisms?.Metabolisms.ToDictionary(x => x.Key.Id, x => x.Value);
+>>>>>>> upstreamcorv
     }
 }
 
@@ -105,6 +113,7 @@ public sealed class ReactionEntry
             proto.Products
                 .Select(x => KeyValuePair.Create(x.Key, x.Value.Float()))
                 .ToDictionary(x => x.Key, x => x.Value);
+<<<<<<< HEAD
         Effects = proto.Effects;
 
         // Corvax-Wiki-Start
@@ -113,6 +122,9 @@ public sealed class ReactionEntry
         MaxTemp = proto.MaximumTemperature;
         HasMax = !float.IsPositiveInfinity(MaxTemp);
         // Corvax-Wiki-End
+=======
+        Effects = proto.Effects.ToList();
+>>>>>>> upstreamcorv
     }
 }
 

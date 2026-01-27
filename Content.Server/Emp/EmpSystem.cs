@@ -1,4 +1,3 @@
-using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Radio;
 using Content.Server.SurveillanceCamera;
@@ -23,8 +22,6 @@ public sealed class EmpSystem : SharedEmpSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<EmpDisabledComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<EmpOnTriggerComponent, TriggerEvent>(HandleEmpTrigger);
 
         SubscribeLocalEvent<EmpDisabledComponent, RadioSendAttemptEvent>(OnRadioSendAttempt);
         SubscribeLocalEvent<EmpDisabledComponent, RadioReceiveAttemptEvent>(OnRadioReceiveAttempt);

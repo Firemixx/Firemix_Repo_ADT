@@ -1,15 +1,18 @@
 - type: entity
-  id: PelletClusterRubber
-  name: pellet (ball, rubber)
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletClusterRubber
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, rubber)
   components:
+<<<<<<< HEAD
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     #ADT tweak start
     layers:
     - state: rubber
     #ADT tweak end
+=======
+>>>>>>> upstreamcorv
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -21,17 +24,20 @@
     lifetime: 0.25
 
 - type: entity
-  id: PelletClusterLethal
-  name: pellet (ball, lethal)
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletClusterLethal
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, lethal)
   components:
+<<<<<<< HEAD
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     #ADT tweak start
     layers:
     - state: buckshot
     #ADT tweak end
+=======
+>>>>>>> upstreamcorv
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -41,17 +47,20 @@
     lifetime: 0.25
 
 - type: entity
-  id: PelletClusterIncendiary
-  name: pellet (ball, incendiary)
-  categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
+  id: PelletClusterIncendiary
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, incendiary)
   components:
+<<<<<<< HEAD
   - type: Sprite
   #ADT tweak start
     sprite: ADT/Objects/Weapons/Guns/Projectiles/shotgun-ammo.rsi
     layers:
     - state: buckshot-incendiary
   #ADT tweak end
+=======
+>>>>>>> upstreamcorv
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -65,14 +74,11 @@
     lifetime: 0.25
 
 - type: entity
-  id: PelletClusterLessLethal
-  name: pellet (ball, less lethal)
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletClusterLessLethal
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, less lethal)
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot
   - type: Projectile
     deleteOnCollide: false
     damage:

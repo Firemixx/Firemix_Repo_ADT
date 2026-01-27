@@ -11,7 +11,13 @@
       size: Tiny
     - type: Stack
       count: 1
+<<<<<<< HEAD
     - type: StockPart # ADT tweak
+=======
+    - type: Tag
+      tags:
+      - ConstructionMaterial
+>>>>>>> upstreamcorv
 
 - type: entity
   id: MicroManipulatorStockPart

@@ -22,7 +22,10 @@
 - type: startingGear
   id: CargoTechGear
   equipment:
+<<<<<<< HEAD
     #id: CargoPDA # ADT: different PDAs in loadouts
+=======
+>>>>>>> upstreamcorv
     ears: ClothingHeadsetCargo
     pocket1: AppraisalTool
   #storage:

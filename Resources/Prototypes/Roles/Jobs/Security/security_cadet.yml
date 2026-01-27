@@ -5,10 +5,17 @@
   playTimeTracker: JobSecurityCadet
   requirements:
     - !type:OverallPlaytimeRequirement
+<<<<<<< HEAD
       time: 54000 #15 hrs # ADT-RoleTime
     - !type:DepartmentTimeRequirement
       department: Security
       time: 72000 #20 hrs # Corvax-RoleTime
+=======
+      time: 10h
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 10h
+>>>>>>> upstreamcorv
       inverted: true # stop playing intern if you're good at security!
 # ADT Restrict Start
     - !type:SpeciesRequirement
@@ -26,7 +33,6 @@
   - Security
   - Brig
   - Maintenance
-  - Service
   - External
   - Cryogenics
   special:

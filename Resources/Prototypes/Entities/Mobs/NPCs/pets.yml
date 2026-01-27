@@ -396,12 +396,16 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalMcGriff
+<<<<<<< HEAD
   # ADT tweak start
   - type: LanguageSpeaker
     languages:
       Dog: Speak
       GalacticCommon: Understand
   # ADT tweak end
+=======
+  - type: MessyDrinker
+>>>>>>> upstreamcorv
 
 - type: entity
   name: Paperwork
@@ -499,12 +503,16 @@
   - type: Speech
     speechVerb: Canine
     speechSounds: Dog
+<<<<<<< HEAD
   # ADT tweak start
   - type: LanguageSpeaker
     languages:
       Dog: Speak
       GalacticCommon: Understand
   # ADT tweak end
+=======
+  - type: MessyDrinker
+>>>>>>> upstreamcorv
 
 - type: entity
   name: Morty
@@ -711,6 +719,22 @@
   # ADT tweak end
 
 - type: entity
+  parent: MobHamsterHamlet
+  id: MobHamsterHamletSlippery
+  suffix: Slippery
+  components:
+  - type: Slippery
+  - type: StepTrigger
+    requiredTriggeredSpeed: 1
+  - type: TriggerOnStepTrigger
+  - type: GibOnTrigger
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Animals/mouse_squeak.ogg"
+    positional: true
+    predicted: true
+
+- type: entity
   name: Shiva
   parent: MobGiantSpider
   id: MobSpiderShiva
@@ -870,6 +894,7 @@
         Bloodloss:
           -0.8
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 800
     coldDamageThreshold: 0
   - type: MeleeWeapon
@@ -881,8 +906,6 @@
   - type: Item
     sprite: Mobs/Pets/Smile/smile.rsi
     size: Huge
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-slime
   - type: MobPrice
     price: 3000 # it is a truly valuable creature
   - type: GhostRole

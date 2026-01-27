@@ -16,7 +16,11 @@
   name: cotton bun recipe
   result: FoodCottonBun
   time: 5
+<<<<<<< HEAD
   group: Moth #ADT-Tweak
+=======
+  group: Moth
+>>>>>>> upstreamcorv
   solids:
     FoodDoughCottonSlice: 1
 
@@ -545,7 +549,7 @@
   name: banana bread recipe
   result: FoodBreadBanana
   time: 15
-  group: LoafCakes
+  group: Breads
   solids:
     FoodDough: 1
     FoodBanana: 1
@@ -2291,6 +2295,18 @@
   #ADT-Tweak End
 
 - type: microwaveMealRecipe
+  id: RecipeBerryDelight
+  name: berry delight recipe
+  result: FoodCakeBerryDelight
+  time: 5
+  group: Cake
+  solids:
+    FoodCakeBlueberry: 1
+    FoodBerries: 2
+  reagents:
+    Milk: 10
+
+- type: microwaveMealRecipe
   id: RecipeBreadDog
   name: bread dog recipe
   result: MobBreadDog
@@ -3248,7 +3264,11 @@
   name: grilled cheese sandwich recipe
   result: FoodBakedGrilledCheeseSandwich
   time: 10
+<<<<<<< HEAD
   group: Breakfast #ADT-Tweak
+=======
+  group: Savory
+>>>>>>> upstreamcorv
   solids:
     FoodBreadPlainSlice: 2
     FoodCheeseSlice: 1
@@ -3263,7 +3283,11 @@
   name: cotton grilled cheese sandwich recipe
   result: FoodBakedGrilledCheeseSandwichCotton
   time: 10
+<<<<<<< HEAD
   group: Moth #ADT-Tweak
+=======
+  group: Moth
+>>>>>>> upstreamcorv
   solids:
     FoodBreadCottonSlice: 2
     FoodCheeseSlice: 1
@@ -3314,9 +3338,8 @@
   name: cotton cake recipe
   result: FoodCakeCotton
   time: 5
-  group: Cake
+  group: Moth
   reagents:
     Fiber: 10
   solids:
     FoodCakePlain: 1
-    

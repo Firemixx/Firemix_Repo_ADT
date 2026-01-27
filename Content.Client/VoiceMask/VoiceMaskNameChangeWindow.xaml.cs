@@ -20,6 +20,8 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
     public Action<string>? OnVoiceChange; // Corvax-TTS
     public Action<string>? OnBarkChange; // Corvax-TTS
     public Action<string>? OnPitchChange; // Corvax-TTS
+    public Action? OnToggle;
+    public Action? OnAccentToggle;
 
     private List<(string, string)> _verbs = new();
     private List<TTSVoicePrototype> _voices = new(); // Corvax-TTS
@@ -59,6 +61,8 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
         // ADT Barks end
 
         AddVerbs();
+        ToggleButton.OnPressed += args => OnToggle?.Invoke();
+        ToggleAccentButton.OnPressed += args => OnAccentToggle?.Invoke();
     }
 
     public void ReloadVerbs(IPrototypeManager proto)
@@ -146,10 +150,12 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
         }
     }
     // ADT Barks end
-    public void UpdateState(string name, string voice, string barkId, float barkPitch, string? verb) // Corvax-TTS
+    public void UpdateState(string name, string? verb, bool active, bool accentHide,string voice, string barkId, float barkPitch) // Corvax-TTS
     {
         NameSelector.Text = name;
         _verb = verb;
+        ToggleButton.Pressed = active;
+        ToggleAccentButton.Pressed = accentHide;
 
         for (int id = 0; id < SpeechVerbSelector.ItemCount; id++)
         {

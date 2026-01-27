@@ -5,6 +5,7 @@
   playTimeTracker: JobLawyer
   requirements:
     - !type:OverallPlaytimeRequirement
+<<<<<<< HEAD
       time: 9000 # 2.5 hrs
     #ADT tweak start
     - !type:SpeciesRequirement
@@ -12,6 +13,9 @@
       species:
       - Vox
       #ADT tweak end
+=======
+      time: 2.5h
+>>>>>>> upstreamcorv
   startingGear: LawyerGear
   icon: "JobIconLawyer"
   supervisors: job-supervisors-hop

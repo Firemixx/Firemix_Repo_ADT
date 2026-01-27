@@ -15,7 +15,11 @@ namespace Content.Shared.Humanoid
         Chest,
         Head,
         Snout,
+<<<<<<< HEAD
         SnoutOverlay, // for animated tongue for ADT
+=======
+        SnoutCover, // things layered over snouts (i.e. noses)
+>>>>>>> upstreamcorv
         HeadSide, // side parts (i.e., frills)
         HeadTop,  // top parts (i.e., ears)
         Eyes,
@@ -27,6 +31,7 @@ namespace Content.Shared.Humanoid
         LLeg,
         RFoot,
         LFoot,
+        Overlay,
         Handcuffs,
         StencilMask,
         Ensnare,

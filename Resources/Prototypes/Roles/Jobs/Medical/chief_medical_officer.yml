@@ -8,13 +8,18 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 9000 #2.5 hrs
+      time: 2.5h
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 18000 #5 hrs
+      time: 5h
     - !type:DepartmentTimeRequirement
       department: Medical
+<<<<<<< HEAD
       time: 36000 #10 hrs
+=======
+      time: 10h
+  weight: 10
+>>>>>>> upstreamcorv
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain
@@ -37,10 +42,16 @@
 
 - type: startingGear
   id: CMOGear
+<<<<<<< HEAD
   # equipment: # ADT tweak
  #id: CMOPDA  # ADT Tweak
     # ears: ClothingHeadsetCMO # ADT tweak
 #    belt: ClothingBeltMedicalFilled ADT tweak
+=======
+  equipment:
+    id: CMOPDA
+    ears: ClothingHeadsetCMO
+>>>>>>> upstreamcorv
   storage:
     back:
     - Flash

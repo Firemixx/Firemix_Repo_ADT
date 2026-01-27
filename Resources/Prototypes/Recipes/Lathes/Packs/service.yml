@@ -43,8 +43,12 @@
   - ElectricGrillMachineCircuitboard
   - BoozeDispenserMachineCircuitboard
   - SodaDispenserMachineCircuitboard
+<<<<<<< HEAD
   - PrinterDocMachineCircuitboard # Corvax-Printer
   - ADTCoffeeMachineCircuitboard # ADT Tweak
+=======
+  - SmartFridgeCircuitboard
+>>>>>>> upstreamcorv
 
 ## Dynamic
 

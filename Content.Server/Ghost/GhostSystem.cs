@@ -4,15 +4,15 @@ using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.Database;
 using Content.Server.GameTicking;
-using Content.Server.Ghost.Components;
 using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
 using Content.Server.Roles.Jobs;
-using Content.Server.Warps;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.ADT.Poltergeist;
 using Content.Shared.Examine;
@@ -34,7 +34,6 @@ using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
 using Content.Shared.Warps;
 using Robust.Server.GameObjects;
-using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
@@ -423,7 +422,8 @@ namespace Content.Server.Ghost
             if (_followerSystem.GetMostGhostFollowed() is not {} target)
                 return;
 
-            WarpTo(uid, target);
+            // If there is a ghostnado happening you almost definitely wanna join it, so we automatically follow instead of just warping.
+            _followerSystem.StartFollowingEntity(uid, target);
         }
 
         private void WarpTo(EntityUid uid, EntityUid target)
@@ -712,6 +712,7 @@ namespace Content.Server.Ghost
 
                     DamageSpecifier damage = new(_prototypeManager.Index(AsphyxiationDamageType), dealtDamage);
 
+<<<<<<< HEAD
                     // START-ADT-TWeak: Это блять ебучий щиткод для ХорниМух, Котька не кусай меня пожажуста >~<
                     if (TryComp<OnGhostAttemtpDamageComponent>(playerEntity, out var damageComp))
                     {
@@ -719,6 +720,9 @@ namespace Content.Server.Ghost
                     }
                     // END-ADT-Tweak
                     _damageable.TryChangeDamage(playerEntity, damage, true);
+=======
+                    _damageable.ChangeDamage(playerEntity.Value, damage, true);
+>>>>>>> upstreamcorv
                 }
             }
 

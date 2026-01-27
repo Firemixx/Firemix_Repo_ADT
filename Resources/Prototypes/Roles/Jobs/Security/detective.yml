@@ -4,6 +4,7 @@
   description: job-description-detective
   playTimeTracker: JobDetective
   requirements:
+<<<<<<< HEAD
   - !type:DepartmentTimeRequirement
     department: Security
     time: 90000 #25 hrs # ADT-RoleTime
@@ -15,6 +16,11 @@
     - Vox
     - Shadekin
   # ADT RESTRICT End
+=======
+  - !type:RoleTimeRequirement
+    role: JobSecurityOfficer
+    time: 5h
+>>>>>>> upstreamcorv
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
@@ -23,7 +29,6 @@
   - Security
   - Brig
   - Maintenance
-  - Service
   - Detective
   - Cryogenics
   - External

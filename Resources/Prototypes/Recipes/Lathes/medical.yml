@@ -74,7 +74,7 @@
 
 - type: latheRecipe
   id: HandheldHealthAnalyzer
-  result: HandheldHealthAnalyzerEmpty
+  result: HandheldHealthAnalyzer
   categories:
   - Tools
   completetime: 4
@@ -217,11 +217,39 @@
     Steel: 100
     Plastic: 100
 
+<<<<<<< HEAD
 # ADT-Tweak
 - type: latheRecipe 
   parent: BaseCircuitboardRecipe
   id: MedicalScannerMachineCircuitboard
   result: MedicalScannerMachineCircuitboard
+=======
+- type: latheRecipe
+  id: OffsetCane
+  result: OffsetCane
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 100
+
+- type: latheRecipe
+  id: OffsetCaneWood
+  result: OffsetCaneWood
+  completetime: 2
+  materials:
+    Steel: 100
+    Wood: 100
+
+- type: latheRecipe
+  id: LauncherSyringe
+  result: LauncherSyringe
+  completetime: 10
+  materials:
+    Silver: 200
+    Steel: 1000
+    Plastic: 200
+    Glass: 100
+>>>>>>> upstreamcorv
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
@@ -229,6 +257,32 @@
   result: CloningConsoleComputerCircuitboard
 
 - type: latheRecipe
+<<<<<<< HEAD
   parent: BaseGoldCircuitboardRecipe
   id: CloningPodMachineCircuitboard
   result: CloningPodMachineCircuitboard
+=======
+  id: JetInjector
+  result: JetInjector
+  categories:
+  - Tools
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Silver: 250
+
+- type: latheRecipe
+  id: AdvancedJetInjector
+  result: AdvancedJetInjector
+  categories:
+  - Tools
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Silver: 400
+    Gold: 50 # A bit of gold for the gold ornaments on it!
+>>>>>>> upstreamcorv
